@@ -4,8 +4,8 @@ class Volunteer < ActiveRecord::Base
   # make bcyrt availible..
   include BCrypt
 
-  def password
-    @password ||= Password.new(self.password_hash)
+  def password(password)
+    @password = password  Password.new(self.password_hash)
   end
 
   def password=(new_password)
