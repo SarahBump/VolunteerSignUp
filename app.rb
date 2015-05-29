@@ -85,9 +85,13 @@ end
 
   # ** Session Routes **
   # Sign-in
+  # figure out why we're always redirected
   post '/admin_sign_in' do
-    redirect '/' unless admin = Admin.find_by(name: params[:name])
-    if admin.password == params[:password]
+    puts params
+    admin = Admin.find_by(name: params[:name])
+    puts admin.password #hash != string password
+    puts admin.password = params[:password]
+    if admin.password = params[:password]
       session[:current_user] = admin.id
       redirect '/admin_authenticated'
     else
