@@ -111,3 +111,8 @@ end
     session[:current_user] = nil
     redirect '/'
   end
+
+  get '/api/volunteers' do
+    volunteers = Volunteer.all
+    return volunteers.to_json
+  end
