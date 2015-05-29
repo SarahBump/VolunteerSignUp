@@ -2,29 +2,29 @@ console.log('You are great.')
 
 
 // Model:  To be a Chirp
-var Chirp = Backbone.Model.extend({});
+var Volunteer = Backbone.Model.extend({});
 
 
 // Collection:  To manage Chirps
-var ChirpCollection = Backbone.Collection.extend({
-  model: Chirp,   // I manage these
-  url: '/api/chirps'   //  Assuming RESTful routing... what is the url
+var VolunteerCollection = Backbone.Collection.extend({
+  model: Volunteer,   // I manage these
+  url: '/api/volunteers'   //  Assuming RESTful routing... what is the url
 });
 
 
 // ModelView:  How might I paint... a single Chirp
 //   (assume they passed in a model )
-var ChirpView = Backbone.View.extend({
+var VolunteerView = Backbone.View.extend({
   tagName: 'li',  // What html tag to start with
-  className: 'chirp',  // Should it have a class name
-  template: _.template('<h3><%= message %></h3>'),  // html generating function
+  className: 'volunteer',  // this is for styling
+  template: _.template('<h3><%= name %></h3>'),  // html generating function
   render: function(){  // ties it all together
     this.$el.html( this.template( this.model.attributes ) );
   }
 });
 
 // ListView (assume to have recieved a collection)
-var ChirpListView = Backbone.View.extend({
+var VolunteerListView = Backbone.View.extend({
   initialize: function(){
     this.listenTo(this.collection, 'add', this.render)
   },
@@ -35,32 +35,33 @@ var ChirpListView = Backbone.View.extend({
     var models = this.collection.models;
 
     for (var i = 0; i < models.length; i++) {
-      var modelView = new ChirpView(   { model: models[i] }   );
+      var modelView = new VolunteerView(   { model: models[i] }   );
       modelView.render();
       this.$el.append( modelView.$el );
     }
-
   }
 });
 
 
-var chirps = new ChirpCollection();
-var chirpsView;
+var volunteers = new VolunteerCollection();
+var volunteersView;
 
 $(document).ready(function(){
 
-  chirpsView = new ChirpListView({
-    collection: chirps,
-    el: $('#all-the-chirps')
+  volunteersView = new VolunteerListView({
+    collection: volunteers,
+    el: $('#all-the-volunteers')
   })
 
-  $('#chirp-form').on('submit', function(e){
+  $('#volunteer-form').on('submit', function(e){
     e.preventDefault();
-    var field = $(this).find('[name="my-chirp"]');
-    chirps.create({message: field.val()});
+    var field = $(this).find('[name="first-name"]');
+    var field_last = $(this).find('[name="first-name"]');
+    console.log();
+    volunteers.create({message: field.val()});
     field.val('');
-  })
+  });
 
-  chirps.fetch();
+  volunteers.fetch();
 
 });

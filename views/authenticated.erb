@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    Thank you for signing up to volunteer
+
+    <form action="/sessions" method="post">
+      <!-- Since delete is not supported... we pass a hidden input -->
+      <!-- hidden  _method  delete says... "I wish I could send this as a delete" -->
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log-Out">
+    </form>
+    
+  </body>
+</html>

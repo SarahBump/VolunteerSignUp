@@ -1,0 +1,24 @@
+<html>
+<head>
+<h1>Authenticated</h1>
+<p>Welcome back friend...</p>
+
+<!-- Why is the method post?  NO!!!  I want delete -->
+<form action="/sessions" method="post">
+  <!-- Since delete is not supported... we pass a hidden input -->
+  <!-- hidden  _method  delete says... "I wish I could send this as a delete" -->
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Log-Out">
+</form>
+
+<ul id='all-the-volunteers'>
+
+</ul>
+
+<script charset="utf-8" src="/javascripts/lib/jquery.js"></script>
+<script charset="utf-8" src="/javascripts/lib/underscore.js"></script>
+<script charset="utf-8" src="/javascripts/lib/backbone.js"></script>
+
+<script charset="utf-8" src="/javascripts/app.js"></script>
+</head>
+</html>
