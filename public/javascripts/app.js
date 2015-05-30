@@ -17,7 +17,7 @@ var VolunteerCollection = Backbone.Collection.extend({
 var VolunteerView = Backbone.View.extend({
   tagName: 'li',  // What html tag to start with
   className: 'volunteer',  // this is for styling
-  template: _.template('<h3><%= name %></h3>'),  // html generating function
+  template: _.template('<h3><%= first_name %> <%= last_name %><%= duty %></h3>'),  // html generating function
   render: function(){  // ties it all together
     this.$el.html( this.template( this.model.attributes ) );
   }
@@ -56,10 +56,11 @@ $(document).ready(function(){
   $('#volunteer-form').on('submit', function(e){
     e.preventDefault();
     var field = $(this).find('[name="first-name"]');
-    var field_last = $(this).find('[name="first-name"]');
+    var field_last = $(this).find('[name="last-name"]');
+    var duty = $(this).find('[name="first-name"]');
     console.log();
     volunteers.create({message: field.val()});
-    field.val('');
+    field.val('');s
   });
 
   volunteers.fetch();
