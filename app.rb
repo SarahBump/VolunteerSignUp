@@ -89,9 +89,7 @@ end
   post '/admin_sign_in' do
     puts params
     admin = Admin.find_by(name: params[:name])
-    puts admin.password #hash != string password
-    puts admin.password = params[:password]
-    if admin.password = params[:password]
+    if admin && admin.password = params[:password]
       session[:current_user] = admin.id
       redirect '/admin_authenticated'
     else
