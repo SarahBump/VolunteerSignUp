@@ -63,7 +63,7 @@ end
     volunteer = Volunteer.new(params)
     num = params[:phone_number]
     nexmo = Nexmo::Client.new(key: '67aa7684', secret: '864fc4aa')
-    nexmo.send_message(from: '12252446824', to: "#{num}", text: "hi!")
+    nexmo.send_message(from: '12252446824', to: "#{num}", text: "Thank You for signing up to volunteer")
     volunteer.save!
     redirect '/authenticated'
   end
