@@ -61,6 +61,9 @@ end
   post '/volunteer' do
     puts params # debug only.. comment out when done
     volunteer = Volunteer.new(params)
+    num = params[:phone_number]
+    nexmo = Nexmo::Client.new(key: '67aa7684', secret: '864fc4aa')
+    nexmo.send_message(from: '12252446824', to: "#{num}", text: "hi!")
     volunteer.save!
     redirect '/authenticated'
   end
@@ -114,3 +117,6 @@ end
     volunteers = Volunteer.all
     return volunteers.to_json
   end
+
+
+  #SMS Routes

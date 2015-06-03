@@ -7,7 +7,8 @@ CREATE TABLE volunteers (
   id SERIAL PRIMARY KEY,
   first_name VARCHAR(255),
   last_name VARCHAR(255),
-  duty VARCHAR(255)
+  duty VARCHAR(255),
+  phone_number VARCHAR(255)
 );
 
 -- Create a chirps table with  id   message   user_id
