@@ -37,5 +37,5 @@ $(document).ready(function(){
 
 
 ```
-#VERSION 2
-In the next version of this site I would like to be able to send alert text to all of the volunteers with the click of a button. 
+#Version 2 
+In the next version of this site I would like to be able to send alert text to all of the volunteers with the click of a button.
