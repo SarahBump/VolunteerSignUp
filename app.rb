@@ -1,5 +1,8 @@
 require 'bundler'
+
 Bundler.require()
+
+Dotenv.load
 
 
 # ** Connection **
@@ -61,9 +64,10 @@ end
   post '/volunteer' do
     puts params # debug only.. comment out when done
     volunteer = Volunteer.new(params)
+    first_name = params[:first_name]
     num = params[:phone_number]
-    nexmo = Nexmo::Client.new(key: '67aa7684', secret: '864fc4aa')
-    nexmo.send_message(from: '12252446824', to: "#{num}", text: "Thank You for signing up to volunteer")
+    nexmo = Nexmo::Client.new(key: ENV['NEXTMO_KEY'], secret: ENV['NEXTMO_SEC'])
+    nexmo.send_message(from: '12252446824', to: "#{num}", text: "Thanks for signing up to volunteer, #{first_name}")
     volunteer.save!
     redirect '/authenticated'
   end
