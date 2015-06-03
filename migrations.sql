@@ -12,7 +12,7 @@ CREATE TABLE volunteers (
 );
 
 -- Create a chirps table with  id   message   user_id
-CREATE TABLE admin (
+CREATE TABLE admins (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   password_hash VARCHAR(255)
