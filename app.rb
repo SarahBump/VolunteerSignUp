@@ -72,6 +72,10 @@ end
     volunteer = Volunteer.new(params)
     first_name = params[:first_name]
     num = params[:phone_number]
+    num.gsub!('-','')
+    num.gsub!('(','')
+    num.gsub!(')','')
+    num.gsub!(' ','')    
     nexmo = Nexmo::Client.new(key: ENV['NEXTMO_KEY'], secret: ENV['NEXTMO_SEC'])
     nexmo.send_message(from: '12252446824', to: "#{num}", text: "Thanks for signing up to volunteer, #{first_name}")
     volunteer.save!
