@@ -6,7 +6,7 @@ This is a Volunteer Sign up application that was built with Sinatra. It incorpor
 
 ![Sign Up Page](/Home2.png)
 ![Admin Page](/Admin2.png)
-![Screenshot](/Screenshot.png)
+![Text Message](/screen.jpg)
 
 #Challenges
 My biggest challenge was rendering the names onto the admin sign in page, here is an example of the code I used to do that
